@@ -9,8 +9,9 @@ public class GestorCitas {
     // HU-09: Reservar una cita (evitando cruces)
     public boolean reservarCita(Cita nuevaCita) {
         for (Cita c : listaCitas) {
-            if (c.getBarbero().getNombre().equalsIgnoreCase(nuevaCita.getBarbero().getNombre()) &&
-                c.getFechaHora().equals(nuevaCita.getFechaHora()) &&
+            if (c.getBarbero().equalsIgnoreCase(nuevaCita.getBarbero()) &&
+                c.getFecha().equals(nuevaCita.getFecha()) &&
+                c.getHora().equals(nuevaCita.getHora()) &&
                 !c.getEstado().equalsIgnoreCase("Cancelada")) {
                 
                 System.out.println("❌ Error: El barbero ya tiene una cita en este horario.");
@@ -18,7 +19,7 @@ public class GestorCitas {
             }
         }
         listaCitas.add(nuevaCita);
-        System.out.println("✅ Cita reservada con éxito. ID: " + nuevaCita.getIdCita());
+        System.out.println("✅ Cita reservada con éxito. ID: " + nuevaCita.getId());
         return true;
     }
 
@@ -37,7 +38,7 @@ public class GestorCitas {
     // HU-12 Parte A: Marcar cita como atendida
     public boolean marcarComoAtendida(int idCita) {
         for (Cita c : listaCitas) {
-            if (c.getIdCita() == idCita) {
+            if (c.getId() == idCita) {
                 c.setEstado("Atendida");
                 System.out.println("✅ Cita #" + idCita + " marcada como ATENDIDA.");
                 return true;
@@ -53,7 +54,7 @@ public class GestorCitas {
         int contador = 0;
         for (Cita c : listaCitas) {
             if (c.getEstado().equalsIgnoreCase("Atendida")) {
-                totalIngresos += c.getServicio().getPrecio();
+                totalIngresos += c.getPrecioServicio(); // Asegúrate de usar el método que retorna el precio del servicio
                 contador++;
             }
         }
