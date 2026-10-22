@@ -11,7 +11,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int opcion = 0;
 
-        // ✅ Agregado el 4to dato que piden los constructores
+        // Agregado el 4to dato que piden los constructores
         Barbero barbero1 = new Barbero("B001", "Carlos", "Corte y Barba");
         Cliente cliente1 = new Cliente("C101", "Sara", "3109876543", "1006543210");
         Servicio servicio1 = new Servicio("Corte clásico", 25000, 30);
