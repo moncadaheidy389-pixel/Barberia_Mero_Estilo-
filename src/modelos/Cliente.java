@@ -1,5 +1,3 @@
 package modelos;
 
-public class Cliente {
-    
-}
+public class Cita {

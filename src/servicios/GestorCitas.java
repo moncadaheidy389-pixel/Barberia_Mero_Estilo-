@@ -1,6 +1,7 @@
 package servicios;
 
 import modelos.Cita;
+import modelos.Barbero;
 import java.util.ArrayList;
 
 public class GestorCitas {
@@ -62,8 +63,6 @@ public class GestorCitas {
         System.out.println("Total de ingresos: $" + totalIngresos);
     }
     
-    
-    
     // HU-06: Consultar agenda e historial personal del barbero
     public void consultarAgendaBarbero(String nombreBarbero) {
         System.out.println("\n==========================================");
@@ -73,11 +72,9 @@ public class GestorCitas {
         boolean encontrada = false;
 
         for (Cita c : listaCitas) {
-            // Verificamos si la cita pertenece a este barbero (ignorando mayúsculas/minúsculas)
             if (c.getBarbero().getNombre().equalsIgnoreCase(nombreBarbero)) {
                 encontrada = true;
                 
-                // Mostramos los detalles de la cita
                 System.out.println("• ID Cita: " + c.getIdCita() + 
                                     " | Fecha/Hora: " + c.getFechaHora() + 
                                     " | Servicio: " + c.getServicio().getNombreServicio() + 
@@ -87,6 +84,45 @@ public class GestorCitas {
 
         if (!encontrada) {
             System.out.println("⚠️ No tienes citas registradas en este momento.");
+        }
+        System.out.println("==========================================\n");
+    }
+
+    // HU-08: Consultar barberos disponibles para una fecha y hora específica
+    public void verBarberosDisponibles(String fechaHoraDeseada, ArrayList<Barbero> listaGeneralBarberos) {
+        System.out.println("\n==========================================");
+        System.out.println("   BARBEROS DISPONIBLES PARA: " + fechaHoraDeseada);
+        System.out.println("==========================================");
+
+        boolean hayDisponibles = false;
+
+        // Recorremos todos los barberos registrados en el sistema
+        for (Barbero barbero : listaGeneralBarberos) {
+            boolean estaOcupado = false;
+
+            // Revisamos las citas para ver si este barbero tiene cruce en ese horario
+            for (Cita c : listaCitas) {
+                if (c.getBarbero().getIdBarbero().equalsIgnoreCase(barbero.getIdBarbero()) &&
+                    c.getFechaHora().equals(fechaHoraDeseada) &&
+                    !c.getEstado().equalsIgnoreCase("Cancelada")) { // Las canceladas no ocupan espacio
+                    
+                    estaOcupado = true;
+                    break; // Salimos del ciclo de citas porque ya encontramos un cruce
+                }
+            }
+
+            // Si el barbero no está ocupado, lo imprimimos como disponible
+            if (!estaOcupado) {
+                hayDisponibles = true;
+                System.out.println("✅ ID: " + barbero.getIdBarbero() + 
+                                    " | Nombre: " + barbero.getNombre() + 
+                                    " | Especialidad: " + barbero.getEspecialidad());
+            }
+        }
+
+        // Si ningún barbero pasó el filtro, informamos al cliente
+        if (!hayDisponibles) {
+            System.out.println("⚠️ Lo sentimos, no hay barberos disponibles para este horario.");
         }
         System.out.println("==========================================\n");
     }
