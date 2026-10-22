@@ -18,7 +18,7 @@ public class MenuCliente {
         int opcion;
         do {
             System.out.println("\n======================================");
-            System.out.println("        👤 MENÚ DE CLIENTE            ");
+            System.out.println("            MENÚ DE CLIENTE            ");
             System.out.println("======================================");
             System.out.println("1. Reservar nueva cita");
             System.out.println("2. Consultar mis citas");
@@ -41,33 +41,33 @@ public class MenuCliente {
                     System.out.println("Volviendo al menú principal...");
                     break;
                 default:
-                    System.out.println("❌ Opción inválida. Intente nuevamente.");
+                    System.out.println("Opción inválida. Intente nuevamente.");
             }
         } while (opcion != 4);
     }
 
     private void reservarCita() {
-        System.out.println("\n--- 📅 Reservar Cita ---");
+        System.out.println("\n--- Reservar Cita ---");
         System.out.print("Ingrese su nombre: ");
         String nombre = scanner.nextLine();
         
         System.out.print("Ingrese fecha y hora (ej: 2026-10-25 10:00): ");
         String fechaHora = scanner.nextLine();
         
-        System.out.println("✅ Gracias " + nombre + ", su cita quedó agendada para: " + fechaHora);
+        System.out.println("Gracias " + nombre + ", su cita quedó agendada para: " + fechaHora);
     }
 
     private void consultarMisCitas() {
-        System.out.println("\n--- 📋 Mis Citas ---");
+        System.out.println("\n--- Mis Citas ---");
         System.out.print("Ingrese su documento o nombre: ");
         String dato = scanner.nextLine();
-        System.out.println("✅ Buscando citas para: " + dato);
+        System.out.println("Buscando citas para: " + dato);
         gestorCitas.consultarAgendaGeneral();
     }
 
     private void cancelarCita() {
-        System.out.println("\n--- ❌ Cancelar Cita ---");
+        System.out.println("\n---Cancelar Cita ---");
         int id = Validador.leerEntero(scanner, "Ingrese el ID de la cita a cancelar: ");
-        System.out.println("✅ Solicitud de cancelación enviada para cita #" + id);
+        System.out.println("Solicitud de cancelación enviada para cita #" + id);
     }
 }
