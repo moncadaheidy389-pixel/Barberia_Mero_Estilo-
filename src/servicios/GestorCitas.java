@@ -14,12 +14,12 @@ public class GestorCitas {
                 c.getFechaHora().equals(nuevaCita.getFechaHora()) &&
                 !c.getEstado().equalsIgnoreCase("Cancelada")) {
                 
-                System.out.println("❌ Error: El barbero ya tiene una cita en este horario.");
+                System.out.println("Error: El barbero ya tiene una cita en este horario.");
                 return false;
             }
         }
         listaCitas.add(nuevaCita);
-        System.out.println("✅ Cita reservada con éxito. ID: " + nuevaCita.getIdCita());
+        System.out.println("Cita reservada con éxito. ID: " + nuevaCita.getIdCita());
         return true;
     }
 
@@ -40,11 +40,11 @@ public class GestorCitas {
         for (Cita c : listaCitas) {
             if (c.getIdCita() == idCita) {
                 c.setEstado("Atendida");
-                System.out.println("✅ Cita #" + idCita + " marcada como ATENDIDA.");
+                System.out.println("Cita #" + idCita + " marcada como ATENDIDA.");
                 return true;
             }
         }
-        System.out.println("❌ Cita no encontrada.");
+        System.out.println("Cita no encontrada.");
         return false;
     }
 
@@ -83,7 +83,7 @@ public class GestorCitas {
         }
 
         if (!encontrada) {
-            System.out.println("⚠️ No tienes citas registradas en este momento.");
+            System.out.println("No tienes citas registradas en este momento.");
         }
         System.out.println("==========================================\n");
     }
@@ -114,7 +114,7 @@ public class GestorCitas {
             // Si el barbero no está ocupado, lo imprimimos como disponible
             if (!estaOcupado) {
                 hayDisponibles = true;
-                System.out.println("✅ ID: " + barbero.getIdBarbero() + 
+                System.out.println("ID: " + barbero.getIdBarbero() + 
                                     " | Nombre: " + barbero.getNombre() + 
                                     " | Especialidad: " + barbero.getEspecialidad());
             }
@@ -122,7 +122,7 @@ public class GestorCitas {
 
         // Si ningún barbero pasó el filtro, informamos al cliente
         if (!hayDisponibles) {
-            System.out.println("⚠️ Lo sentimos, no hay barberos disponibles para este horario.");
+            System.out.println("Lo sentimos, no hay barberos disponibles para este horario.");
         }
         System.out.println("==========================================\n");
     }
