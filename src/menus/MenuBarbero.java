@@ -19,7 +19,7 @@ public class MenuBarbero {
                 opcion = scanner.nextInt();
                 scanner.nextLine(); // Limpiar el buffer
             } else {
-                System.out.println("❌ Por favor, ingrese un número válido.");
+                System.out.println("Por favor, ingrese un número válido.");
                 scanner.nextLine();
                 continue;
             }
@@ -38,7 +38,7 @@ public class MenuBarbero {
                     break;
                     
                 default:
-                    System.out.println("❌ Opción inválida. Intente de nuevo.");
+                    System.out.println("Opción inválida. Intente de nuevo.");
             }
 
         } while (opcion != 2);
