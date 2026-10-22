@@ -63,11 +63,11 @@ public class MenuAdministrador {
                         break;
 
                     default:
-                        System.out.println("❌ Opción inválida. Intente nuevamente.");
+                        System.out.println("Opción inválida. Intente nuevamente.");
                         break;
                 }
             } catch (NumberFormatException e) {
-                System.out.println("❌ Error: Debe ingresar un número válido.");
+                System.out.println("Error: Debe ingresar un número válido.");
             }
 
         } while (opcion != 0);
