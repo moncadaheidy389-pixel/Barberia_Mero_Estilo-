@@ -12,24 +12,24 @@ public class GestorServicios {
 
     public boolean registrarServicio(String nombreServicio, double precio, int duracionMinutos) {
         if (precio <= 0) {
-            System.out.println("❌ Error: El precio debe ser mayor a cero.");
+            System.out.println("Error: El precio debe ser mayor a cero.");
             return false;
         }
 
         if (duracionMinutos <= 0) {
-            System.out.println("❌ Error: La duración debe ser mayor a cero.");
+            System.out.println("Error: La duración debe ser mayor a cero.");
             return false;
         }
 
         Servicio nuevoServicio = new Servicio(nombreServicio, precio, duracionMinutos);
         listaServicios.add(nuevoServicio);
-        System.out.println("✅ ¡Servicio registrado con éxito!");
+        System.out.println("¡Servicio registrado con éxito!");
         return true;
     }
 
     public void listarServicios() {
         if (listaServicios.isEmpty()) {
-            System.out.println("⚠️ No hay servicios registrados en el catálogo.");
+            System.out.println("No hay servicios registrados en el catálogo.");
             return;
         }
 
