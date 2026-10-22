@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class GestorCitas {
     private ArrayList<Cita> listaCitas = new ArrayList<>();
 
-    // HU-09: Reservar una cita (evitando cruces)
+    // : Reservar una cita (evitando cruces)
     public boolean reservarCita(Cita nuevaCita) {
         for (Cita c : listaCitas) {
             if (c.getBarbero().getNombre().equalsIgnoreCase(nuevaCita.getBarbero().getNombre()) &&
