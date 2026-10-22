@@ -61,4 +61,33 @@ public class GestorCitas {
         System.out.println("Citas atendidas: " + contador);
         System.out.println("Total de ingresos: $" + totalIngresos);
     }
+    
+    
+    
+    // HU-06: Consultar agenda e historial personal del barbero
+    public void consultarAgendaBarbero(String nombreBarbero) {
+        System.out.println("\n==========================================");
+        System.out.println("   AGENDA E HISTORIAL PARA: " + nombreBarbero);
+        System.out.println("==========================================");
+        
+        boolean encontrada = false;
+
+        for (Cita c : listaCitas) {
+            // Verificamos si la cita pertenece a este barbero (ignorando mayúsculas/minúsculas)
+            if (c.getBarbero().getNombre().equalsIgnoreCase(nombreBarbero)) {
+                encontrada = true;
+                
+                // Mostramos los detalles de la cita
+                System.out.println("• ID Cita: " + c.getIdCita() + 
+                                    " | Fecha/Hora: " + c.getFechaHora() + 
+                                    " | Servicio: " + c.getServicio().getNombreServicio() + 
+                                    " | Estado: " + c.getEstado());
+            }
+        }
+
+        if (!encontrada) {
+            System.out.println("⚠️ No tienes citas registradas en este momento.");
+        }
+        System.out.println("==========================================\n");
+    }
 }
