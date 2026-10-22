@@ -26,7 +26,7 @@ public class GestorBarberos {
     public boolean registrarBarbero(String idBarbero, String nombre, String especialidad) {
         
         if (buscarPorId(idBarbero) != null) {
-            System.out.println("❌ Error: Ya existe un barbero registrado con el ID " + idBarbero);
+            System.out.println("Error: Ya existe un barbero registrado con el ID " + idBarbero);
             return false;
         }
 
@@ -35,14 +35,14 @@ public class GestorBarberos {
         
         
         listaBarberos.add(nuevoBarbero);
-        System.out.println("✅ ¡Barbero " + nombre + " registrado con éxito!");
+        System.out.println("¡Barbero " + nombre + " registrado con éxito!");
         return true;
     }
 
 
     public void listarBarberos() {
         if (listaBarberos.isEmpty()) {
-            System.out.println("⚠️ No hay barberos registrados en el sistema.");
+            System.out.println("No hay barberos registrados en el sistema.");
             return;
         }
 
