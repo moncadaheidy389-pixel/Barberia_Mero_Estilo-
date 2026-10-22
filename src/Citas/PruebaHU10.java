@@ -23,5 +23,11 @@ gestor.agregarCita(new Cita(
 
 // Consultar las citas del cliente 12345
 gestor.mostrarMisCitas("12345");
+
+System.out.println("\n-- HU11; CANCELAR CITA ---");
+gestor.cancelarCita(1, "12345");
+
+System.out.println("\n--- HU10: CONSULTAR MIS CITAS ---");
+gestor.mostrarMisCitas("12345");
 }
 }
