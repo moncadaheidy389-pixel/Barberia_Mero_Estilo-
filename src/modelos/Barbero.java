@@ -3,11 +3,11 @@ package modelos;
 public class Barbero {
     private String idBarbero;
     private String nombre;
-    private String especialidad;  // Solo estos 3 ✅
+    private String especialidad;  // Solo estos 3 
 
     public Barbero() {}
 
-    // ✅ Único constructor: 3 datos
+    // Único constructor: 3 datos
     public Barbero(String idBarbero, String nombre, String especialidad) {
         this.idBarbero = idBarbero;
         this.nombre = nombre;
